@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prague Estate - Find Your Perfect Prague Property</title>
+    <style>
+        /* Reset and Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background-color: #f9f9f9;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        section {
+            padding: 80px 0;
+        }
+
+        h1, h2, h3 {
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        h1 {
+            font-size: 2.5rem;
+        }
+
+        h2 {
+            font-size: 2rem;
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+        }
+
+        p {
+            margin-bottom: 20px;
+        }
+
+        a {
+            text-decoration: none;
+            color: #9e1a1a;
+            transition: color 0.3s;
+        }
+
+        a:hover {
+            color: #c72121;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: #9e1a1a;
+            color: white;
+            padding: 12px 30px;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: background-color 0.3s, transform 0.2s;
+            border: none;
+            cursor: pointer;
+        }
+
+        .btn:hover {
+            background-color: #c72121;
+            transform: translateY(-2px);
+            color: white;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        /* Background Pattern */
+        .bg-pattern::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 40%;
+            background-image: url('logo_bgrnd.png');
+            background-size: contain;
+            background-repeat: repeat-x;
+            background-position: bottom center;
+            opacity: 0.2;
+            z-index: -1;
+        }
+
+        /* Header Styles */
+        header {
+            background-color: white;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+        }
+
+        .logo img {
+            height: 90px;
+            margin-right: 10px;
+            border: solid 1px #9e1a1a;
+            border-radius: 45px;
+            box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+        }
+
+        .logo-text {
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #333;
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            align-items: center;
+        }
+
+        nav ul li {
+            margin-left: 30px;
+        }
+
+        nav ul li a {
+            font-weight: 600;
+        }
+
+        /* Hero Section */
+        .hero {
+            padding-top: 130px;
+            padding-bottom: 120px;
+            position: relative;
+        }
+
+        .hero-content {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 40px;
+        }
+
+        .hero-text {
+            flex: 1;
+        }
+
+        .hero-image {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+        }
+
+        .telegram-mockup {
+            width: 250px;
+            height: 500px;
+            background-color: #fff;
+            border-radius: 30px;
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+            overflow: hidden;
+            position: relative;
+            border: 10px solid #222;
+            z-index: 1;
+        }
+
+        .telegram-content {
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+
+        .telegram-content img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        /* Features Section */
+        .features {
+            background-color: white;
+            position: relative;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+
+        .feature-card {
+            background-color: #f9f9f9;
+            border-radius: 10px;
+            padding: 30px;
+            text-align: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+            transition: transform 0.3s;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .feature-icon {
+            font-size: 2.5rem;
+            margin-bottom: 20px;
+            color: #9e1a1a;
+        }
+
+        /* How It Works Section */
+        .how-it-works {
+            position: relative;
+        }
+
+        .steps {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 50px;
+            flex-wrap: wrap;
+        }
+
+        .step {
+            flex: 1;
+            min-width: 250px;
+            text-align: center;
+            padding: 0 20px;
+            position: relative;
+        }
+
+        .step-number {
+            background-color: #9e1a1a;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin: 0 auto 20px;
+        }
+
+        .step:not(:last-child)::after {
+            content: "";
+            position: absolute;
+            top: 25px;
+            right: -50px;
+            width: 100px;
+            height: 2px;
+            background-color: #e1e1e1;
+        }
+
+        /* FAQ Section */
+        .faq {
+            background-color: white;
+            position: relative;
+        }
+
+        .faq-item {
+            margin-bottom: 20px;
+            border-bottom: 1px solid #e1e1e1;
+            padding-bottom: 20px;
+        }
+
+        .faq-question {
+            font-weight: 600;
+            margin-bottom: 10px;
+            color: #9e1a1a;
+        }
+
+        /* CTA Section */
+        .cta {
+            text-align: center;
+            padding: 100px 0 250px;
+            position: relative;
+        }
+
+        .cta h2 {
+            margin-bottom: 20px;
+        }
+
+        .cta p {
+            max-width: 600px;
+            margin: 0 auto 30px;
+        }
+
+        /* Related Channels Section */
+        .related-channels {
+            background-color: #222;
+            text-align: center;
+            padding: 80px 0;
+            position: relative;
+            color: white;
+        }
+
+        .related-channels h2 {
+            color: white;
+        }
+
+        .related-channels p {
+            color: #ccc;
+            max-width: 600px;
+            margin: 0 auto 40px;
+        }
+
+        .channels-container {
+            display: flex;
+            justify-content: center;
+            gap: 60px;
+            margin-top: 40px;
+            flex-wrap: wrap;
+        }
+
+        .channel-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            max-width: 200px;
+        }
+
+        .channel-logo {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin-bottom: 20px;
+            background-color: white;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 5px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .channel-logo:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 40px rgba(158, 26, 26, 0.4);
+        }
+
+        .channel-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            border-radius: 50%;
+        }
+
+        .channel-name {
+            font-weight: 600;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
+            color: white;
+        }
+
+        .channel-description {
+            color: #aaa;
+            font-size: 0.9rem;
+            margin-bottom: 15px;
+        }
+
+        /* Footer */
+        footer {
+            background-color: #333;
+            color: white;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 40px;
+            width: 100%;
+        }
+
+        .footer-column {
+            max-width: 65%;
+        }
+
+        .footer-column:first-child {
+            text-align: left;
+        }
+
+        .footer-column:last-child {
+            text-align: right;
+        }
+
+        .footer-column h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+            display: flex;
+            justify-content: flex-end;
+        }
+
+        .footer-column ul li {
+            margin-left: 20px;
+        }
+
+        .footer-column ul li:first-child {
+            margin-left: 0;
+        }
+
+        .footer-column ul li a {
+            color: #ccc;
+        }
+
+        .footer-column ul li a:hover {
+            color: white;
+        }
+
+        .copyright {
+            text-align: center;
+            padding-top: 20px;
+            border-top: 1px solid #444;
+            color: #ccc;
+        }
+
+        /* Responsive Styles */
+        @media (max-width: 768px) {
+            .hero-content {
+                flex-direction: column;
+            }
+
+            .steps {
+                flex-direction: column;
+                gap: 40px;
+            }
+
+            .step:not(:last-child)::after {
+                display: none;
+            }
+
+            .feature-card {
+                margin-bottom: 20px;
+            }
+
+            nav ul {
+                display: none;
+            }
+
+            .mobile-menu-btn {
+                display: block;
+            }
+
+            .telegram-mockup {
+                width: 280px;
+                height: 560px;
+            }
+
+            .channels-container {
+                gap: 30px;
+            }
+
+            .channel-logo {
+                width: 120px;
+                height: 120px;
+            }
+
+            .footer-content {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .footer-column {
+                max-width: 100%;
+                margin-bottom: 30px;
+                text-align: center !important;
+            }
+
+            .footer-column ul {
+                justify-content: center;
+                flex-wrap: wrap;
+            }
+
+            .footer-column ul li {
+                margin: 0 10px 10px;
+            }
+        }
+
+        /* Icons (using Unicode symbols as placeholders) */
+        .icon-search::before { content: "🔍"; }
+        .icon-time::before { content: "⏱️"; }
+        .icon-filter::before { content: "🔄"; }
+        .icon-telegram::before { content: "📱"; }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a class="logo" href="#top">
+                <img src="logo_bot.png" alt="Prague Estate Logo">
+                <div class="logo-text">Prague Estate</div>
+            </a>
+            <nav>
+                <ul>
+                    <li><a href="#features">Features</a></li>
+                    <li><a href="#how-it-works">How It Works</a></li>
+                    <li><a href="#faq">FAQ</a></li>
+                    <li><a href="#cta" class="btn">Try Now</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero bg-pattern">
+        <div class="bg-overlay"></div>
+        <div class="container hero-content">
+            <div class="hero-text">
+                <h1>Find Your Perfect Prague Property in Seconds</h1>
+                <p>Prague Estate is your personal Telegram notifier of  most recent real estate adverts in Prague. Get immediate notifications of the latest offers, filter by your preferences, and find your dream home faster than ever.</p>
+                <a href="https://t.me/PragueEstateBot?start=landing" class="btn">Start Free Trial</a>
+            </div>
+            <div class="hero-image">
+                <div class="telegram-mockup">
+                    <div class="telegram-content">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2025-03-27%2013.34.20-wLMgJKZAXAAw1vKlVcnX9iXRgsIQJV.jpeg" alt="Prague Estate Telegram Interface showing a property listing in Praha 7">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <div class="container">
+            <h2>Why Use Prague Estate?</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon icon-search"></div>
+                    <h3>Broad Search</h3>
+                    <p>We monitor thousands of ads across the web, so you can get the most out of your Telegram.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-filter"></div>
+                    <h3>Smart Filters</h3>
+                    <p>Filter by location, price, layout, for sale or for rent to find exactly what you're looking for.</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon icon-time"></div>
+                    <h3>Real-Time Updates</h3>
+                    <p>Get notified instantly when new properties matching your criteria become available.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section id="how-it-works" class="how-it-works bg-pattern">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <h2>How It Works</h2>
+            <div class="steps">
+                <div class="step">
+                    <div class="step-number">1</div>
+                    <h3>Start the Bot</h3>
+                    <p>Open Telegram and search for @PragueEstateBot or click our <a href="https://t.me/PragueEstateBot?start=landing">link</a> to start chatting.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">2</div>
+                    <h3>Set Your Preferences</h3>
+                    <p>Сustomise filters according to what you're looking for - location, budget, size, and other requirements.</p>
+                </div>
+                <div class="step">
+                    <div class="step-number">3</div>
+                    <h3>Be The Fastest</h3>
+                    <p>Just wait for the advert of your choice and make an appointment to view the property.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="faq">
+        <div class="container">
+            <h2>Frequently Asked Questions</h2>
+            <div class="faq-item">
+                <div class="faq-question">I have already found a flat! How can I turn off notifications?</div>
+                <div class="faq-answer">Just press the "Notify" button in the main menu. If it is red - no more messages!</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">How up-to-date are the property adverts?</div>
+                <div class="faq-answer">Our database is updated in real time. As soon as a new property is listed, it will be available through our bot.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">Does the bot work in English?</div>
+                <div class="faq-answer">Yes, Prague Estate supports English. But keep in mind that owners may speak only czech.</div>
+            </div>
+            <div class="faq-item">
+                <div class="faq-question">You have only Telegram version?</div>
+                <div class="faq-answer">Yes, for now we based only in Telegram. But the mobile app is coming soon!</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section id="cta" class="cta bg-pattern">
+        <div class="bg-overlay"></div>
+        <div class="container">
+            <h2>Ready to Find Your Perfect Prague Property?</h2>
+            <p>Join thousands of satisfied users who have found their dream homes using Prague&nbsp;Estate. Start your search today!</p>
+            <a href="https://t.me/PragueEstateBot?start=landing" class="btn">Start Free Trial</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h3>Prague&nbsp;Estate</h3>
+                    <p>Your personal assistant for finding real estate in Prague, available 24/7 on Telegram.</p>
+                </div>
+                <div class="footer-column">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="#features">Features</a></li>
+                        <li><a href="#how-it-works">How It Works</a></li>
+                        <li><a href="#faq">FAQ</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="copyright">
+                &copy; 2025 Prague&nbsp;Estate. All rights reserved.
+            </div>
+        </div>
+    </footer>
+</body>
+</html>
