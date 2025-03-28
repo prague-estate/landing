@@ -152,7 +152,7 @@
 
         /* Hero Section */
         .hero {
-            padding-top: 130px;
+            padding-top: 150px;
             padding-bottom: 120px;
             position: relative;
         }
@@ -192,10 +192,11 @@
             overflow: hidden;
         }
 
-        .telegram-content img {
+        .telegram-content video {
             width: 100%;
             height: 100%;
             object-fit: cover;
+            display: block;
         }
 
         /* Features Section */
@@ -539,7 +540,11 @@
             <div class="hero-image">
                 <div class="telegram-mockup">
                     <div class="telegram-content">
-                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/photo_2025-03-27%2013.34.20-wLMgJKZAXAAw1vKlVcnX9iXRgsIQJV.jpeg" alt="Prague Estate Telegram Interface showing a property listing in Praha 7">
+                        <video autoplay loop muted playsinline>
+                            <source src="telegram_bot.mp4" type="video/mp4">
+                            <!-- Fallback to image if video doesn't load -->
+                            <img src="telegram_printsceen.jpeg" alt="Prague Estate Telegram Interface showing a property">
+                        </video>
                     </div>
                 </div>
             </div>
